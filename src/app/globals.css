@@ -25,3 +25,138 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Contact Section Styles */
+.contact {
+  padding: 50px 20px;
+ 
+  color: #fff;
+  text-align: center;
+}
+
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left Image Container */
+.leftImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.profileImage:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Info Wrapper */
+.infoWrapper {
+  flex: 2;
+  background-color: #2c2c3e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contactInfo {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+.contactInfo h2 {
+  margin: 8px 0;
+  color: #f3edf0;
+}
+
+.contactInfo h4 {
+  margin: 8px 0;
+  color: #eb72ae;
+}
+
+.logoImages {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.logoIcon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.2s ease;
+}
+
+.logoIcon:hover {
+  transform: scale(1.2); /* Enlarge icon slightly on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .contactContainer {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .leftImageContainer {
+    margin-bottom: 30px;
+  }
+
+  .infoWrapper {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profileImage {
+    width: 250px;
+    height: 250px;
+  }
+
+  .contactInfo {
+    font-size: 1rem;
+  }
+
+  .logoIcon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactContainer {
+    padding: 10px;
+  }
+
+  .leftImageContainer {
+    margin-bottom: 20px;
+  }
+
+  .profileImage {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contactInfo {
+    font-size: 0.9rem;
+  }
+
+  .logoIcon {
+    width: 50px;
+    height: 50px;
+  }
+}
