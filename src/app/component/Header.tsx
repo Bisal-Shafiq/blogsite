@@ -24,7 +24,7 @@ export default function Header() {
         </div>
         <ul className={`navList ${menuOpen ? 'show' : ''}`}>
           <li><Link href="/" onClick={closeMenu}>Home</Link></li>
-          <li><Link href="#cards-section" onClick={closeMenu}>Blog</Link></li>
+          <li><Link href="/#cards-section" onClick={closeMenu}>Blog</Link></li>
         </ul>
       </nav>
     </header>
