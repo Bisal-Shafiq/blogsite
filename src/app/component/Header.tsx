@@ -1,72 +1,41 @@
-"use client";
-import Image from "next/image";
-import React, { useState } from "react";
-import { FiMenu } from "react-icons/fi"; // Add a menu icon (react-icons)
+"use client"; // Mark this as a Client Component
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage menu visibility
+import { useState } from 'react';
+import Link from 'next/link';
 
-  // Toggle menu visibility on small screens
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false); // Close the menu when a link is clicked
+  };
 
   return (
-    <header className="bg-pink-800 text-white py-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Image
-            src="/logo.png" // Replace with your logo path
-            alt="Logo"
-            width={50} // Logo width
-            height={50} // Logo height
-          />
-          <h1 className="text-xl font-bold ml-2">Cat Blog</h1>
+    <header className="header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 20px' }}>
+      {/* Logo Section */}
+      <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+        <img 
+          src="/logo.png" 
+          alt="Cat Blog Logo" 
+          style={{ width: '50px', height: '50px', marginRight: '10px' }}
+        />
+        <h1 style={{ textAlign: "center", margin: 0 }}>Cat Blog</h1>
+      </div>
+
+      {/* Navigation */}
+      <nav>
+        <div className="menuIcon" onClick={toggleMenu}>
+          <img src="/menu.png" alt="Menu Icon" />
         </div>
-
-        {/* Navbar for large screens */}
-        <nav className="hidden md:flex">
-          <ul className="flex space-x-4">
-            <li>
-              <a href="/" className="hover:underline">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#cards-section" className="hover:underline">
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Hamburger menu for small screens */}
-        <button
-          className="md:hidden text-white"
-          onClick={toggleMenu}
-        >
-          <FiMenu size={30} />
-        </button>
-      </div>
-
-      {/* Mobile Menu - Toggles visibility based on state */}
-      <div
-        className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-pink-800 text-white py-4`}
-      >
-        <ul className="space-y-4 text-center">
-          <li>
-            <a href="/" className="hover:underline">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#cards-section" className="hover:underline">
-              Blog
-            </a>
-          </li>
+        <ul className={`navList ${menuOpen ? 'show' : ''}`}>
+          <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link href="#cards-section" onClick={closeMenu}>Blog</Link></li>
         </ul>
-      </div>
+      </nav>
     </header>
   );
-};
-
-export default Header;
+}
