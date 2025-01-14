@@ -28,86 +28,37 @@ body {
 
 
 
-.header {
+.logoImages {
   display: flex;
-  justify-content: space-between; /* Space between menu icon and nav items */
-  align-items: center;
-  padding: 20px; /* Increased padding to make header taller */
-  background-color: #2e2e4e;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow to the header */
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.menuIcon {
-  display: none; /* Hidden on larger screens */
-  cursor: pointer;
-  position: absolute;
-  left: 600px; /* Adjust left position for mobile */
-  top: 15px; /* Adjust top position for mobile */
+.logoIcon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.2s ease;
 }
 
-.menuIcon img {
-  width: 50px; /* Adjust the size of the menu icon */
-  height: 50px;
+.logoIcon:hover {
+  transform: scale(1.2); /* Enlarge icon slightly on hover */
 }
 
-.navList {
-  list-style: none;
-  display: flex;
-  gap: 30px; /* Increased gap for more spacing */
-  margin: 0;
-  padding: 0;
-}
-
-.navList li {
-  font-weight: bold;
-}
-
-.navList a {
-  color: #f0f0f0;
-  transition: color 0.3s ease;
-}
-
-.navList a:hover {
-  color: #ff69b4;
-}
-
-/* Mobile Responsive Styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .menuIcon {
-    display: block; /* Show the menu icon on mobile */
-  }
+  
 
-  .navList {
-    display: none; /* Hide menu items by default on mobile */
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 60px; /* Set position of dropdown menu */
-    left: 0;
-    width: 100%;
-    background-color: #2e2e4e;
-    padding: 20px 0;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-  }
-
-  .navList.show {
-    display: flex; /* Show menu items when 'show' class is added */
+  .logoIcon {
+    width: 60px;
+    height: 60px;
   }
 }
 
-/* Sticky Header on Scroll */
-body {
-  padding-top: 80px; /* Increased offset for taller header */
+@media (max-width: 480px) {
+  
+  .logoIcon {
+    width: 50px;
+    height: 50px;
+  }
 }
-
-
-/* Sticky Header on Scroll */
-body {
-  padding-top: 60px; /* Offset content under the fixed header */
-}
-
