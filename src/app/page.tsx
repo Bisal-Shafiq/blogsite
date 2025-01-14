@@ -1,6 +1,6 @@
+// Home Component
 import { client } from "@/sanity/lib/client";
 import BlogCard from "./component/BlogCard";
-
 
 const query = `*[_type == "blogPost"] {
   title,
@@ -11,15 +11,18 @@ const query = `*[_type == "blogPost"] {
 
 export default async function Home() {
   // Fetch the latest data from Sanity
-  const blogs = await client.fetch(query);
+  let blogs = [];
+  try {
+    blogs = await client.fetch(query);
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+  }
 
   return (
     <div className="items-center justify-center">
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col lg:flex-row items-center bg-black/50 py-6 sm:py-12 md:py-16">
-        {/* Content */}
         <div className="flex flex-col lg:flex-row items-center justify-between w-full px-6 sm:px-10 lg:px-20 max-w-screen-xl mx-auto">
-          {/* Text Section */}
           <div className="text-center lg:text-left text-white max-w-[700px] mb-6 lg:mb-0">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
               Welcome to Cat Blog
@@ -34,8 +37,6 @@ export default async function Home() {
               Explore More
             </a>
           </div>
-
-          {/* Circular Image */}
           <div className="w-80 h-80 sm:w-50 sm:h-50 md:w-65 md:h-65 lg:w-90 lg:h-90 rounded-full overflow-hidden mb-6 lg:mb-0">
             <img
               src="/bg.jpg" // Replace with your image path
@@ -53,11 +54,6 @@ export default async function Home() {
         </h1>
         <BlogCard blogs={blogs} />
       </section>
-      
-
     </div>
-
-    
-
   );
 }

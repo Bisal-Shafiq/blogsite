@@ -15,18 +15,9 @@ export default function Header() {
   };
 
   return (
-    <header className="header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 20px' }}>
-      {/* Logo Section */}
-      <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-        <img 
-          src="/logo.png" 
-          alt="Cat Blog Logo" 
-          style={{ width: '50px', height: '50px', marginRight: '10px' }}
-        />
-        <h1 style={{ textAlign: "center", margin: 0 }}>Cat Blog</h1>
-      </div>
-
-      {/* Navigation */}
+    <header className="header">
+      
+      <h1 style={{textAlign:"center", paddingLeft:"60px" , paddingTop:"5px"}}>Cat Blog</h1>
       <nav>
         <div className="menuIcon" onClick={toggleMenu}>
           <img src="/menu.png" alt="Menu Icon" />
